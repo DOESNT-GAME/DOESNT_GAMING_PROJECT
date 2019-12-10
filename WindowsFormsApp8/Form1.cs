@@ -22,13 +22,14 @@ namespace WindowsFormsApp8
         int money = 0;
         int price = 5;
         int Time = 0;
+        int timer = 0;
         public Form1()
         {
             InitializeComponent();
         }
         private void InitializeTimer()
         {
-            counter = 0;
+            counter = 5;
             timer1.Interval = 1000;
             timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -72,7 +73,10 @@ namespace WindowsFormsApp8
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            IDK = money;
+            Time = 5;
+            timer = 1;
+            counter = 5;
         }
 
         private void button2_MouseMove(object sender, MouseEventArgs e)
@@ -114,6 +118,48 @@ namespace WindowsFormsApp8
         }
 
         private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (timer == 1)
+            {
+                if (counter == 1)
+                {
+                    counter++;
+                    money = IDK;
+                    label1.Text = "Вложения: " + Time;
+                }
+                if(counter ==0)
+                {
+                    counter = 0;
+                    textBox4.Text = "Деньги: " + money;
+                    IDK = 0;
+                    timer1.Enabled = false;
+                    label1.Text = "Вложения: " + Time;
+                }
+                if (counter == 5)
+                {
+                    counter++;
+                    Time = 5;
+                    IDK = money * 2;
+                    label1.Text = "Вложения: " + Time;
+                }
+                if (counter == 4)
+                {
+                    counter++;
+                    Time = 4;
+                    money = 0;
+                    textBox4.Text = "Деньги: " + "0";
+                    label1.Text = "Вложения: " + Time;
+                }
+                if (counter == 3)
+                {
+                    counter++;
+                    Time--;
+                    label1.Text = "Вложения: " + Time;
+                }
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
